@@ -7,7 +7,7 @@ const vendorRoutes = require('./routes/vendorRoutes');
 const firmRoutes=require('./routes/firmRoutes');
 const productRoutes=require('./routes/productRoutes')
 const path=require('path')
-const port=4000;
+const port= process.env.port||4000;
 dotenv.config()
 
 
@@ -29,3 +29,7 @@ app.use('/uploads',express.static('uploads'));
 app.listen(port,()=>{
   console.log(`server started and running at ${port}`)
 });
+
+app.use('/',(req,res)=>{
+  res.send("<h1>welcome")
+})
