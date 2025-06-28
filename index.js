@@ -6,9 +6,13 @@ const bodyparser=require('body-parser')
 const vendorRoutes = require('./routes/vendorRoutes');
 const firmRoutes=require('./routes/firmRoutes');
 const productRoutes=require('./routes/productRoutes')
+const cors=require('cors');
 const path=require('path')
+
+
 const port= process.env.port||4000;
 dotenv.config()
+app.use(cors())
 
 
 mongoose.connect(process.env.MONGO_URI)
